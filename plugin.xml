@@ -27,7 +27,10 @@
 	<preference name="ANDROID_FIREBASE_VER_OVERRIDE" default="false" />
 
 	<platform name="ios">
-		<preference name="deployment-target" value="13.0" />
+		<config-file parent="MinimumOSVersion" target="*-Info.plist">
+			<string>$DEPLOYMENT-TARGET</string>
+		</config-file>
+		<variable name="DEPLOYMENT-TARGET" default="13.0" />
 		<hook type="before_plugin_install" src="scripts/build_mobile_messaging_framework.sh"/>
 		<config-file parent="UIBackgroundModes" target="*Info.plist">
             <array>
